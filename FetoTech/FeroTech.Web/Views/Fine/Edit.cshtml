@@ -1,0 +1,55 @@
+﻿@model FeroTech.Infrastructure.Application.DTOs.FineDto
+
+@{
+    ViewData["Title"] = "Edit Fine";
+}
+
+<h2 class="text-center mb-4">Edit Fine</h2>
+
+<form asp-action="Edit" method="post" class="p-4 border rounded shadow-sm bg-light">
+    <!-- Hidden field for FineId -->
+    <input asp-for="FineId" type="hidden" />
+
+    <div class="mb-3">
+        <label asp-for="MemberId" class="form-label">Member ID</label>
+        <input asp-for="MemberId" class="form-control" placeholder="Enter Member ID" />
+        <span asp-validation-for="MemberId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="IssueId" class="form-label">Issue ID</label>
+        <input asp-for="IssueId" class="form-control" placeholder="Enter Issue ID" />
+        <span asp-validation-for="IssueId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="FineAmount" class="form-label">Fine Amount</label>
+        <input asp-for="FineAmount" class="form-control" type="number" step="0.01" placeholder="Enter fine amount" />
+        <span asp-validation-for="FineAmount" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="FineDate" class="form-label">Fine Date</label>
+        <input asp-for="FineDate" class="form-control" type="date" />
+        <span asp-validation-for="FineDate" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="PaymentStatus" class="form-label">Payment Status</label>
+        <select asp-for="PaymentStatus" class="form-control">
+            <option value="">-- Select Payment Status --</option>
+            <option value="Paid">Paid</option>
+            <option value="Unpaid">Unpaid</option>
+        </select>
+        <span asp-validation-for="PaymentStatus" class="text-danger"></span>
+    </div>
+
+
+    <div class="d-flex justify-content-between">
+        <button type="submit" class="btn btn-primary px-4">Save Changes</button>
+        <a asp-action="Index" class="btn btn-secondary px-4">Cancel</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using FeroTech.Web.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace FeroTech.Web.Controllers;
 

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<FeroTech.Infrastructure.Domain.Entities.Fine>
+
+@{
+    ViewData["Title"] = "Fine List";
+}
+
+<h2 class="text-center mb-4">Fine Records</h2>
+
+<a asp-action="Create" class="btn btn-success mb-3">+ Add New Fine</a>
+
+<table class="table table-bordered table-striped text-center align-middle">
+    <thead class="table-dark">
+        <tr>
+            <th>Fine ID</th>
+            <th>Member ID</th>
+            <th>Issue ID</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Payment Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            foreach (var fine in Model)
+            {
+                <tr>
+                    <td>@fine.FineId</td>
+                    <td>@fine.MemberId</td>
+                    <td>@fine.IssueId</td>
+                    <td>@fine.FineAmount</td>
+                    <td>@fine.FineDate.ToShortDateString()</td>
+                    <td>@fine.PaymentStatus</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@fine.FineId" class="btn btn-sm btn-warning">Edit</a>
+                        <a asp-action="Details" asp-route-id="@fine.FineId" class="btn btn-sm btn-info">Details</a>
+                        <a asp-action="Delete" asp-route-id="@fine.FineId" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="7" class="text-muted text-center">No fines found.</td>
+            </tr>
+        }
+    </tbody>
+</table>

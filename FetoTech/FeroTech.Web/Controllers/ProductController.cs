@@ -2,6 +2,7 @@
 using FeroTech.Infrastructure.Application.Interfaces;
 using FeroTech.Infrastructure.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace FeroTech.Web.Controllers
 {
@@ -20,7 +21,7 @@ namespace FeroTech.Web.Controllers
             var products = await _repo.GetAllAsync();
             var dtos = products.Select(p => new ProductDto
             {
-                Id = p.Id,
+                Id = p.MemberId,
                 Name = p.Name,
                 Price = p.Price
             });

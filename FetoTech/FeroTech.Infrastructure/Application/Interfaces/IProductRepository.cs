@@ -14,5 +14,6 @@ namespace FeroTech.Infrastructure.Application.Interfaces
         Task AddAsync(Product product);
         Task UpdateAsync(Product product);
         Task DeleteAsync(int id);
+        Task AddAsync(Member member);
     }
 }

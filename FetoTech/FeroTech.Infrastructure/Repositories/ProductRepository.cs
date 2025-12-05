@@ -41,5 +41,10 @@ namespace FeroTech.Infrastructure.Repositories
             if (product != null) _context.Products.Remove(product);
             await _context.SaveChangesAsync();
         }
+
+        public Task AddAsync(Member member)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

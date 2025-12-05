@@ -1,0 +1,32 @@
+﻿@model FeroTech.Infrastructure.Application.DTOs.MemberDto
+
+@{
+    ViewData["Title"] = "Edit Member";
+}
+
+<h2>Edit Member</h2>
+
+<form asp-action="Edit" method="post" class="p-3">
+    <input asp-for="MemberId" type="hidden" />
+
+    <div class="mb-3">
+        <label asp-for="MemberName" class="form-label"></label>
+        <input asp-for="MemberName" class="form-control" />
+        <span asp-validation-for="MemberName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Address" class="form-label"></label>
+        <input asp-for="Address" class="form-control" />
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-action="Index" class="btn btn-secondary ms-2">Cancel</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

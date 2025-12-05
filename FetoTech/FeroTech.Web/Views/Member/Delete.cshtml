@@ -1,0 +1,30 @@
+﻿@model FeroTech.Infrastructure.Application.DTOs.MemberDto
+
+@{
+    ViewData["Title"] = "Delete Member";
+}
+
+<h2 class="text-center mb-4 text-danger">Delete Member</h2>
+
+<div class="alert alert-warning text-center">
+    <strong>Are you sure you want to delete this member?</strong>
+</div>
+
+<div class="card shadow p-4 mx-auto" style="max-width: 500px;">
+    <dl class="row">
+        <dt class="col-sm-4">Member Name:</dt>
+        <dd class="col-sm-8">@Model.MemberName</dd>
+
+        <dt class="col-sm-4">Address:</dt>
+        <dd class="col-sm-8">@Model.Address</dd>
+    </dl>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="MemberId" />
+
+        <div class="d-flex justify-content-between mt-4">
+            <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </div>
+    </form>
+</div>
